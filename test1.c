@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<String.h>
+//加密函数
 void encrypt()
 {
 	int len,i;
@@ -7,13 +8,16 @@ void encrypt()
 	printf("请输入密码：");
 	scanf("%s",password);
 	len = strlen(password);
+	//将每个字符的ASCII码加上其在字符串中的位置（1开始）和偏移值3
 	for(i = 0;i<len;i++)
 	{
 		password[i] = password[i]+i+1+3; 
 	}
+	//将字符串的第一位和最后一位调换顺序
 	temp1 = password[0];
 	password[0] = password[len-1];
 	password[len-1] = temp1;
+	//将字符串反转
 	for(i = 0;i<len/2;i++)
 	{
 		char temp2;
@@ -23,6 +27,7 @@ void encrypt()
 	}
 	printf("加密后的密码为：%s\n",password);
 }
+//解密函数
 void decrypt()
 {
 	int len,i;
